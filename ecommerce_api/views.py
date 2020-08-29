@@ -1,3 +1,10 @@
-from django.shortcuts import render
+# from django.shortcuts import render
+from ecommerce_api import serializers
+from ecommerce_api import models
+from rest_framework import viewsets
 
-# Create your views here.
+
+class UserViewSet(viewsets.ModelViewSet):
+    """Handle creating and updating profiles"""
+    serializer_class = serializers.UserSerializer
+    queryset = models.User.objects.all()
