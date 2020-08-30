@@ -50,3 +50,17 @@ class User(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         """Return string representation of user"""
         return self.email
+
+
+class Product(models.Model):
+    """Database model for product in the system"""
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+    price = models.DecimalField(max_digits=7, decimal_places=2)
+
+    class Meta:
+        ordering = ['title']
+
+    def __str__(self):
+        """Return string representation of product"""
+        return self.title
